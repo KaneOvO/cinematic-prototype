@@ -7,15 +7,6 @@ const game = new Phaser.Game({
         width: 1920,
         height: 1080
     },
-    physics: {
-        default: 'matter',
-        matter: {
-            gravity: {
-                y: 0
-            },
-            debug: true
-        }
-    },
     ////scene: [baseBattle],
     //scene: [secondFloorLevel3],
     scene: [
@@ -23,6 +14,7 @@ const game = new Phaser.Game({
         warnning,
         credit,
         title,
+        firstFloorLevel0,
         Level1,
     ],
     backgroundColor: 0x000000,

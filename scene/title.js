@@ -4,12 +4,19 @@ class title extends GameScene {
     }
 
     exPreload() {
+        this.load.image("background2", "assets/Game cover image.png");
         //this.load.audio("titleBGM","titleBGM.mp3");
     }
 
     exShortCut() { }
 
     exCreate() {
+
+        //设置背景图片
+        this.backgroundImage = this.add.image(0, 0, "background2").setOrigin(0).setDepth(-1);
+        
+        //播放背景音乐
+        this.bgm2.play();
 
         this.input.keyboard.on('keydown', (event) => {
                 console.log('keydown event', event);
@@ -23,7 +30,7 @@ class title extends GameScene {
         var titleText = this.add.text(
             this.cx,
             this.cy - 300,
-            "Game Title"
+            "Eternal Dragon"
         )
             .setOrigin(0.5)
             .setColor("#ffffff")
@@ -47,9 +54,10 @@ class title extends GameScene {
                 startText.setText("Start").setAlpha(0.8).setScale(1).setColor("#ffffff");
             })
             .on("pointerup", () => {
+                this.bgm2.stop();
                 this.cameras.main.fade(1000, 0, 0, 0);
                 this.time.delayedCall(1000, () => {
-                    this.scene.start("level1");
+                    this.scene.start("floor one level 0");
                 });
             });
 
@@ -70,6 +78,7 @@ class title extends GameScene {
                 creditText.setText("Credit").setAlpha(0.8).setScale(1).setColor("#ffffff");
             })
             .on("pointerup", () => {
+                this.bgm2.stop();
                 this.cameras.main.fade(1000, 0, 0, 0);
                 this.time.delayedCall(1000, () => {
                     this.scene.start("credit");
